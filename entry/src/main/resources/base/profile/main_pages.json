@@ -1,5 +1,7 @@
 {
   "src": [
-    "pages/Index"
+    "pages/Index",
+    "pages/component/BaseDemo",
+    "pages/component/TextDemo"
   ]
 }

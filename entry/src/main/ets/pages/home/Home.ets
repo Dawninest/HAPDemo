@@ -34,7 +34,7 @@ export default struct Home {
         .margin({bottom: 10})
         Column() {
           Grid() {
-            ForEach(this.gridData, (data, index) => {
+            ForEach(this.gridData, (data) => {
               GridItem(){
                 Text(data.title + data.index)
                   .height(80)
@@ -52,7 +52,7 @@ export default struct Home {
         .height(200)
         .width('100%')
         Column() {
-          Button('跳转tab2', { type: ButtonType.Normal, stateEffect: true })
+          Button('查看组件', { type: ButtonType.Normal, stateEffect: true })
             .borderRadius(8)
             .backgroundColor(0x317aff)
             .width(90)

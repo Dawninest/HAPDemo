@@ -1,6 +1,8 @@
 import RouterTableBar from '../components/RouterTableBar'
-import Home from './home/home';
-let storage = new LocalStorage({ 'tabBarIndex': 0 });
+import Home from './home/Home';
+import ComponentList from './component/List'
+// tabBarIndex 作为页面公共数据存LocalStorage中使用
+let storage = new LocalStorage({ 'tabBarIndex': 1 });
 
 @Entry(storage)
 @Component
@@ -24,7 +26,7 @@ struct Index {
           icon: $r('app.media.about')
         }
       ],
-        contextBuilder: this.buildTabContent
+        contextBuilder: this.buildTabContent,
       });
     }
   }
@@ -33,7 +35,7 @@ struct Index {
       Home();
     }
     if (index === 1) {
-      Text('推荐的组件').fontSize(30)
+      ComponentList();
     }
     if (index === 2) {
       Text('关于的内容').fontSize(30)

@@ -3,18 +3,14 @@
  * */
 @Component
 export default struct RouterTableBar {
-  @LocalStorageLink('tabBarIndex') @Watch('onTabChange') currentIndex: number = 1;
+  @LocalStorageLink('tabBarIndex') currentIndex: number = 0;
   // @State currentIndex: number = 0
   private tabsController : TabsController = new TabsController()
   private tabOptions = [];
   @BuilderParam contextBuilder: (index: number) => void;
 
-  onTabChange(index: number): void {
-    this.tabsController.changeIndex(index);
-  }
-
   build() {
-    Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
+    Tabs({ barPosition: BarPosition.End, controller: this.tabsController, index: this.currentIndex }) {
       ForEach(this.tabOptions, (option) => {
         TabContent() {
           this.contextBuilder(option.index);
@@ -23,7 +19,7 @@ export default struct RouterTableBar {
       })
     }.onChange((index) => {
       // 滑动tab的滚动触发
-      this.currentIndex = index;
+      // this.currentIndex = index;
     })
   }
 
@@ -42,7 +38,6 @@ export default struct RouterTableBar {
     .justifyContent(FlexAlign.Center)
     .onClick(() => {
       this.currentIndex = targetIndex;
-      this.tabsController.changeIndex(this.currentIndex);
     })
   }
 }
