@@ -1,6 +1,9 @@
 @Entry
 @Component
 struct TextDemo {
+  @State inputVal: string = "";
+  @State textAreaVal: string = "";
+
   build() {
     Column() {
       Navigation() {
@@ -18,12 +21,14 @@ struct TextDemo {
                   .fontStyle(FontStyle.Italic)
                   .decoration({ type: TextDecorationType.Underline, color: Color.Black })
                 Span("span").textCase(TextCase.UpperCase)
-              }.border({width: 1})
+              }.border({ width: 1 })
+
               Text('长文本，超出的部分显示省略号。111111111111111111111111111')
                 .width('100%')
                 .textOverflow({ overflow: TextOverflow.Ellipsis })
                 .maxLines(1)
-                .border({ width: 1 }).padding(10)
+                .border({ width: 1 })
+                .padding(10)
               Text('长文本，lineHeight30,超出的部分换行。222222222222222222222222222')
                 .width('100%')
                 .lineHeight(30)
@@ -39,12 +44,28 @@ struct TextDemo {
             }
             .alignItems(HorizontalAlign.Start)
           }
+
           ListItem() {
             Column({ space: 10 }) {
-              Text('TextInput').fontSize(30)
-              Text('TextArea').fontSize(30)
-            }
+              Text('TextInput/TextArea').fontSize(30)
+              TextInput({
+                placeholder: "请输入文本",
+                text: this.inputVal,
+              }).onChange((value) => this.inputVal = value)
+              TextArea({
+                placeholder: "请输入多行文本",
+                text: this.textAreaVal,
+              }).onChange((value) => this.textAreaVal = value)
+              Text('InputType.Password')
+              TextInput({
+                placeholder: "密码输入模式",
+                text: this.inputVal,
+              }).onChange((value) => this.inputVal = value)
+              .type(InputType.Password)
+              Text('InputType其他模式：Email邮箱地址输入模式、Number纯数字输入模式、PhoneNumber电话号码输入模式')
+            }.alignItems(HorizontalAlign.Start)
           }
+
           ListItem() {
             Column({ space: 10 }) {
 
