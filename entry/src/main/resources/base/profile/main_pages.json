@@ -3,6 +3,8 @@
     "pages/Index",
     "pages/component/BaseDemo",
     "pages/component/TextDemo",
-    "pages/component/DialogDemo"
+    "pages/component/DialogDemo",
+    "pages/component/AnimationDemo",
+    "pages/component/AnimationDemo1"
   ]
 }

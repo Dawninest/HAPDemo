@@ -8,7 +8,8 @@ export default struct ComponentList {
   listData = [
     { title: '基础组件', path: 'pages/component/BaseDemo'},
     { title: '文本组件', path: 'pages/component/TextDemo'},
-    { title: '自定义弹窗', path: 'pages/component/DialogDemo'}
+    { title: '自定义弹窗', path: 'pages/component/DialogDemo'},
+    { title: '动画', path: 'pages/component/AnimationDemo'}
   ];
 
   build() {
